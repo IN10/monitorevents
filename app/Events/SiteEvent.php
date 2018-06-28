@@ -8,9 +8,9 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 
-class SiteEvent implements ShouldBroadcast
+class SiteEvent implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -21,9 +21,9 @@ class SiteEvent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($amount)
+    public function __construct($event)
     {
-        $this->event = $amount;
+        $this->event = $event;
     }
 
     /**
