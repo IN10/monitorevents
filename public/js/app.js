@@ -1729,7 +1729,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     mounted: function mounted() {
-        Echo.channel('test-channel').listen('App\\Events\\SiteEvent', function (e) {
+        Echo.channel('test-channel').listen('SiteEvent', function (e) {
             console.log('event', e);
         });
     }

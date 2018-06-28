@@ -17,7 +17,7 @@ export default {
     },
 
     mounted() {
-        Echo.channel('test-channel').listen('App\\Events\\SiteEvent', (e) => {
+        Echo.channel('test-channel').listen('SiteEvent', (e) => {
             console.log('event', e);
         });
     },
