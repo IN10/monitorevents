@@ -17,7 +17,7 @@ export default {
     },
 
     mounted() {
-        Echo.channel('test-channel').listen('SiteEvent', event => this.items.push(event));
+        Echo.private('test-channel').listen('SiteEvent', event => this.items.push(event));
     },
 };
 </script>

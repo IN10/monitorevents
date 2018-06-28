@@ -1731,7 +1731,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var _this = this;
 
-        Echo.channel('test-channel').listen('SiteEvent', function (event) {
+        Echo.private('test-channel').listen('SiteEvent', function (event) {
             return _this.items.push(event);
         });
     }
