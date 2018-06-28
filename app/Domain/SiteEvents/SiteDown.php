@@ -6,9 +6,9 @@ class SiteDown implements \JsonSerializable
 {
     private $level = '1';
 
-    private $message = 'YO de shit is down';
+    private $title = 'YO de shit is down';
 
-    private $additionalData = ' De website www.rotterdampas.nl is plat :(';
+    private $description = ' De website www.rotterdampas.nl is plat :(';
 
 
     private $id = 0;
@@ -24,8 +24,8 @@ class SiteDown implements \JsonSerializable
         return [
             'level' => $this->level,
             'id' => $this->level,
-            'message' => $this->level,
-            'additionalData' => $this->additionalData,
+            'title' => $this->level,
+            'description' => $this->additionalData,
         ];
     }
 }
