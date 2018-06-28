@@ -12,33 +12,12 @@ export default {
     components: { Item },
     data() {
         return {
-            items: [
-                {
-                    id: 1,
-                    level: 1,
-                    title: 'Error',
-                    description: 'Lorem ipsum dolor sit amet',
-                },
-                {
-                    id: 2,
-                    level: 2,
-                    title: 'warning',
-                    description: 'Lorem ipsum dolor sit amet',
-                },
-                {
-                    id: 3,
-                    level: 3,
-                    title: 'okay',
-                    description: 'Lorem ipsum dolor sit amet',
-                },
-                {
-                    id: 4,
-                    level: 4,
-                    title: 'info',
-                    description: 'Lorem ipsum dolor sit amet',
-                },
-            ],
+            items: [],
         };
+    },
+
+    mounted() {
+        Echo.channel('test-channel').listen('SiteEvent', event => this.items.push(event));
     },
 };
 </script>
