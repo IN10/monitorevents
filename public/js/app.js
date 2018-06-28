@@ -1729,10 +1729,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     mounted: function mounted() {
-        var _this = this;
-
-        Echo.private('test-channel').listen('SiteEvent', function (event) {
-            return _this.items.push(event);
+        Echo.channel('test-channel').listen('App\\Events\\SiteEvent', function (e) {
+            console.log('event', e);
         });
     }
 });
