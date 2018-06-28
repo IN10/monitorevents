@@ -14,7 +14,7 @@ class SiteEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $rotation;
+    public $event;
 
     /**
      * Create a new event instance.
@@ -23,7 +23,7 @@ class SiteEvent implements ShouldBroadcast
      */
     public function __construct($amount)
     {
-        $this->rotation = $amount;
+        $this->event = $amount;
     }
 
     /**
