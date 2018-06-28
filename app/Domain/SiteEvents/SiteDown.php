@@ -24,7 +24,7 @@ class SiteDown implements \JsonSerializable
         return [
             'level' => $this->level,
             'id' => $this->level,
-            'title' => $this->level,
+            'title' => $this->title,
             'description' => $this->description,
         ];
     }

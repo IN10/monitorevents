@@ -35,4 +35,12 @@ class SiteEvent implements ShouldBroadcastNow
     {
         return new PresenceChannel('test-channel');
     }
+    /**
+     * Set the event name
+     *
+     * @return string
+     */
+    public function broadcastAs() {
+        return 'event';
+    }
 }
