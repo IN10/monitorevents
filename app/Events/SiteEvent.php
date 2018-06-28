@@ -33,6 +33,6 @@ class SiteEvent implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('test-channel');
+        return new PresenceChannel('test-channel');
     }
 }
