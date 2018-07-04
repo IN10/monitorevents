@@ -7,7 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Laravel</title>
+        <title>Operations event stream</title>
 
         <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
     </head>
@@ -15,7 +15,7 @@
         <div id="app">
             <div class=container>
                 <nav class="navbar navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#">Monitorevents</a>
+                    <a class="navbar-brand" href="#">Operations event stream</a>
                 </nav>
 
                 <feed></feed>
