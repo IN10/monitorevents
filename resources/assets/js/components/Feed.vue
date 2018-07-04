@@ -17,9 +17,9 @@ export default {
     },
 
     mounted() {
-        Echo.channel('test-channel').listen('SiteEvent', (e) => {
-            console.log('event', e);
-        });
+        //Echo.channel('test-channel').listen('SiteEvent', message => this.items.push(message.event));
+
+        socket.on("test-channel:event", message => this.items.push(message.event));
     },
 };
 </script>

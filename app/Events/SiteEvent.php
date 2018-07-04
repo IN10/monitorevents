@@ -4,7 +4,6 @@ namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -33,7 +32,7 @@ class SiteEvent implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new PresenceChannel('test-channel');
+        return new Channel('test-channel');
     }
     /**
      * Set the event name

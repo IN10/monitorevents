@@ -1729,8 +1729,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     mounted: function mounted() {
-        Echo.channel('test-channel').listen('SiteEvent', function (e) {
-            console.log('event', e);
+        var _this = this;
+
+        //Echo.channel('test-channel').listen('SiteEvent', message => this.items.push(message.event));
+
+        socket.on("test-channel:event", function (message) {
+            return _this.items.push(message.event);
         });
     }
 });
@@ -1757,13 +1761,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         color: function color() {
-            if (this.item.level === 1) {
+            if (this.item.level === "1") {
                 return 'bg-danger text-white';
             }
-            if (this.item.level === 2) {
+            if (this.item.level === "2") {
                 return 'bg-warning text-white';
             }
-            if (this.item.level === 3) {
+            if (this.item.level === "3") {
                 return 'bg-success text-white';
             }
             return 'bg-informational';
@@ -56824,6 +56828,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__("./node_modules/laravel-echo/dist/echo.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_echo__);
 
+window.io = __webpack_require__("./node_modules/socket.io-client/lib/index.js");
 
 window._ = __webpack_require__("./node_modules/lodash/lodash.js");
 window.Popper = __webpack_require__("./node_modules/popper.js/dist/esm/popper.js").default;
@@ -56871,10 +56876,12 @@ if (token) {
  */
 window.io = __webpack_require__("./node_modules/socket.io-client/lib/index.js");
 
-window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
-  broadcaster: 'socket.io',
-  host: window.location.hostname + ':3000'
-});
+window.socket = window.io(window.location.hostname + ':3000');
+
+// window.Echo = new Echo({
+//     broadcaster: 'socket.io',
+//     host: `${window.location.hostname}:3000`,
+// });
 
 /***/ }),
 

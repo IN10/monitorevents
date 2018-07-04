@@ -13,13 +13,13 @@ export default {
 
     computed: {
         color() {
-            if (this.item.level === 1) {
+            if (this.item.level === "1") {
                 return 'bg-danger text-white';
             }
-            if (this.item.level === 2) {
+            if (this.item.level === "2") {
                 return 'bg-warning text-white';
             }
-            if (this.item.level === 3) {
+            if (this.item.level === "3") {
                 return 'bg-success text-white';
             }
             return 'bg-informational';

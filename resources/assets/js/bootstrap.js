@@ -1,4 +1,5 @@
 import Echo from 'laravel-echo';
+window.io = require('socket.io-client');
 
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
@@ -46,7 +47,9 @@ if (token) {
  */
 window.io = require('socket.io-client');
 
-window.Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: `${window.location.hostname}:3000`,
-});
+window.socket = window.io(`${window.location.hostname}:3000`);
+
+// window.Echo = new Echo({
+//     broadcaster: 'socket.io',
+//     host: `${window.location.hostname}:3000`,
+// });
