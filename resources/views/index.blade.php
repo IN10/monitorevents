@@ -22,6 +22,11 @@
             </div>
         </div>
 
+        <script type="text/javascript">
+            window.configuration = {
+                pusher: '{{ config('broadcasting.connections.pusher.key') }}',
+            };
+        </script>
         <script type="text/javascript" src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>

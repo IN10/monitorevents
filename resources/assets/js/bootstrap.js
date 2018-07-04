@@ -1,4 +1,4 @@
-import Echo from 'laravel-echo';
+import Pusher from 'pusher-js';
 
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
@@ -44,9 +44,14 @@ if (token) {
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
-window.io = require('socket.io-client');
+Pusher.logToConsole = true;
 
-window.Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: `${window.location.hostname}:3000`,
+const pusher = new Pusher(window.configuration.pusher, {
+    cluster: 'eu',
+    encrypted: true,
+});
+
+const channel = pusher.subscribe('events');
+channel.bind('event', (data) => {
+    console.log('Got event', data);
 });
