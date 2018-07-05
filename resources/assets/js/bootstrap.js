@@ -46,12 +46,7 @@ if (token) {
  */
 Pusher.logToConsole = true;
 
-const pusher = new Pusher(window.configuration.pusher, {
+window.pusher = new Pusher(window.configuration.pusher, {
     cluster: 'eu',
     encrypted: true,
-});
-
-const channel = pusher.subscribe('events');
-channel.bind('event', (data) => {
-    console.log('Got event', data);
 });

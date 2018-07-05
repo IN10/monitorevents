@@ -17,6 +17,10 @@ export default {
     },
 
     mounted() {
+        const channel = window.pusher.subscribe('events');
+        channel.bind('App\\Events\\SiteEvent', data => {
+            this.items.push(data);
+        });
     },
 };
 </script>

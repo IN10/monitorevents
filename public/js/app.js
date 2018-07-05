@@ -1657,7 +1657,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             items: []
         };
     },
-    mounted: function mounted() {}
+    mounted: function mounted() {
+        var _this = this;
+
+        var channel = window.pusher.subscribe('events');
+        channel.bind('App\\Events\\SiteEvent', function (data) {
+            _this.items.push(data);
+        });
+    }
 });
 
 /***/ }),
@@ -51561,9 +51568,9 @@ window.Popper = __webpack_require__("./node_modules/popper.js/dist/esm/popper.js
  */
 
 try {
-    window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
+  window.$ = window.jQuery = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
-    __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
+  __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 
 /**
@@ -51585,9 +51592,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**
@@ -51597,14 +51604,9 @@ if (token) {
  */
 __WEBPACK_IMPORTED_MODULE_0_pusher_js___default.a.logToConsole = true;
 
-var pusher = new __WEBPACK_IMPORTED_MODULE_0_pusher_js___default.a(window.configuration.pusher, {
-    cluster: 'eu',
-    encrypted: true
-});
-
-var channel = pusher.subscribe('events');
-channel.bind('event', function (data) {
-    console.log('Got event', data);
+window.pusher = new __WEBPACK_IMPORTED_MODULE_0_pusher_js___default.a(window.configuration.pusher, {
+  cluster: 'eu',
+  encrypted: true
 });
 
 /***/ }),
