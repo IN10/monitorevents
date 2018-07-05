@@ -19,7 +19,7 @@ export default {
     mounted() {
         const channel = window.pusher.subscribe('events');
         channel.bind('event', data => {
-            this.items.push(data);
+            this.items.unshift(data);
         });
     },
 };

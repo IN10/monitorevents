@@ -1662,7 +1662,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         var channel = window.pusher.subscribe('events');
         channel.bind('event', function (data) {
-            _this.items.push(data);
+            _this.items.unshift(data);
         });
     }
 });
