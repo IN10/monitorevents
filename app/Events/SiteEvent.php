@@ -34,4 +34,9 @@ class SiteEvent implements ShouldBroadcast
     {
         return new Channel('events');
     }
+
+    public function broadcastAs()
+    {
+        return 'event';
+    }
 }

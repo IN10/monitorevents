@@ -1661,7 +1661,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         var channel = window.pusher.subscribe('events');
-        channel.bind('App\\Events\\SiteEvent', function (data) {
+        channel.bind('event', function (data) {
             _this.items.push(data);
         });
     }
